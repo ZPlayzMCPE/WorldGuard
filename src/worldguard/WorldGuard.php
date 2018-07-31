@@ -33,7 +33,7 @@ class WorldGuard extends PluginBase {
         $this->loadRegions($this->getDataFolder()."regions.yml");
     }
     public function onEnable() : void{
-        new EventListener($this, $this->players);
+        $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
     }
     public function onDisable() : void
     {
@@ -227,7 +227,7 @@ class WorldGuard extends PluginBase {
         }
     }
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
-     if (strtolower($command->getName()) === "worldguard") {
+     if (strtolower($command->getName()) == "worldguard") {
          if($sender instanceof Player){
          if($sender->hasPermission("worldguard.command")){
                 if (empty($args)) {
