@@ -1,9 +1,12 @@
 <?php
+
 namespace worldguard;
+
 use pocketmine\command\{CommandSender, Command};
 use pocketmine\Player;
 use pocketmine\utils\TextFormat as TF;
 use worldguard\region\Region;
+
 class CommandHandler {
     const HELP_MESSAGE = [
         "pos1" => TF::BLUE."/{CMD} pos1:".TF::YELLOW." Sets position 1",
@@ -21,8 +24,9 @@ class CommandHandler {
         $this->plugin = $plugin;
     }
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
-        if($sender instanceof Player){
      if (strtolower($command->getName()) === "worldguard") {
+         if($sender instanceof Player){
+         if($sender->hasPermission("worldguard.command")){
                 if (empty($args)) {
                     $sender->sendMessage("§bPlease use §3/$label help §bfor a list of commands.");
                     return true;
@@ -134,6 +138,7 @@ class CommandHandler {
                 }
              }
      }
+    }
     }
     }
     }
