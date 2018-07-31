@@ -6,6 +6,7 @@ use pocketmine\math\Vector3;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use worldguard\region\{Region, RegionFlags};
+use pocketmine\utils\TextFormat as TF;
 class WorldGuard extends PluginBase {
     
     const HELP_MESSAGE = [
