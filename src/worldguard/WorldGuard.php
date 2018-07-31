@@ -33,7 +33,6 @@ class WorldGuard extends PluginBase {
     }
     public function onEnable() : void{
         new EventListener($this, $this->players);
-        $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
     }
     public function onDisable() : void
     {
